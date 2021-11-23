@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Kodak">
+    <meta name="robots" content="올해 겨울 코닥과 함께해요">
+    <meta name="description" content="">
+    <meta property="og:title" content="코닥">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="코닥과 함께">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="코닥">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:description" content="코닥">
+
+    <title>Kodak</title>
+     <!-- 스타일 -->
+        <!-- 파비콘 -->
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <!-- 리셋 -->
+    <link rel="stylesheet" href="./css/reset.css">
+        <!-- 스와이프 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.min.css" integrity="sha512-BYn1UZcpzkgi4cForzUzU/FqsewIcfXDYAU0tThFfehimrUrp5hOtcWPI1Wpli8rKopUIhaDCbxXPttBDTISgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- 아이콘폰트 폰트아썸 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 인덱스 페이지 스타일 -->
+    <link rel="stylesheet" href="./css/index.css">
+    
+    <!-- 스크립트 -->
+        <!-- 라이브러리 jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- 라이브러리 jquery cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- 스와이프 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.min.js" integrity="sha512-XHnWZWvy5TkCnPgLU7XsWhGAks1JQ3uFutVxRSH0Z4+djsGkCkxVsYu+JgfrDicvbCmjfUf1HeMWYUvUYKgjzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        html,body{font-family: 'Noto Sans Kr', sans-serif;}
+        
+        /* header-style */
+        .header{background-color:#ffc000;position:relative;height:109px;}
+        .logo{position:absolute;left:410px;top:40px;}
+        .header .container{display:flex;flex-flow:row nowrap;justify-content: space-around;align-items:center;padding-top:20px;}
+        .left-nav{position:absolute;left:611px;display:flex;flex-flow:row nowrap;justify-content:space-around;align-items: center;top:40px;}
+        .left-nav li{font-weight:500;margin-right:48px;}
+        .right-nav{position:absolute;right:410px;display:flex;flex-flow:row nowrap;justify-content:space-around;align-items:flex-end;top:40px;}
+        .right-nav li{margin-right:20px;}
+        .left-nav li a:hover{color:#ff0000;}
+
+        .left-nav li a:hover .sub-hover{opacity:1;}
+        .sub-hover{position:absolute;top:69%;left:32%;width:46%;height:54%;background-color: rgb(0, 0, 0,0.9);z-index:2;opacity: 0;}
+        .sub-nav{display:flex;flex-flow:row nowrap;padding-top:15px;padding-left:20px;}
+        .sub-nav li{margin-right:10px;color:#fff;}
+
+
+
+        /* .main-banner style */
+        .swiper{width:1220px;}
+        .main-banner{background-color: #ffd44f;}
+
+        /* best new style */
+        .tit-txt h2{text-align:center;font-size:18px;font-weight:700;padding:52px;}
+        .best-item .img-box,.new-item .img-box{padding-right:410px;padding-left:410px;display:flex;flex-flow:row nowrap;justify-content:space-around;align-items:center;}
+        .best-item .img-box p,.new-item .img-box p{font-size:14px;text-align:center;padding-top:10px;}
+
+        /* kodak-gallery style */
+        
+        .kodak-gallery{padding-top:75px;padding-right:410px;padding-left:410px;}
+        .kodak-gallery .title-txt{background-color: #ffc000;}
+        .kodak-gallery .title-txt h2{font-size:18px;font-weight:700;}
+        .kodak-gallery .img-box{display:flex;}
+        .gallery-img01{position:relative;}
+        .gallery-img01 .hover-box{position:absolute;top:0;width:100%;height:100%;background-color:rgb(4, 0, 90,0.5);display:none;}
+        .gallery-img01 .hover-box p{font-size:20px;font-weight:400;text-align:center;color:#fff;position:absolute;top:40%;left:16%;}
+        .gallery-img01:hover .hover-box{display:block;}
+        .gallery-img01{cursor: pointer;}
+        .gallery-img02{position:relative;}
+        .gallery-img02 .hover-box{position:absolute;top:0;width:100%;height:100%;background-color:rgb(4, 0, 90,0.5);display:none;}
+        .gallery-img02 .hover-box p{font-size:20px;font-weight:400;text-align:center;color:#fff;position:absolute;top:40%;left:21%;}
+        .gallery-img02:hover .hover-box{display:block;}
+        .gallery-img02{cursor: pointer;}
+
+        /* kodak-insta style */
+        .kodak-insta{margin-top:35px;padding-right:410px;padding-left:410px;}
+        .insta-tit-txt{background-color:#ffcc00;}
+        .insta-tit-txt h2{font-size:18px;font-weight:700;}
+        .insta-slide-top{display:flex;margin-bottom:35px;}
+        .insta-slide-bottom{display:flex;}
+
+        /* footer style */
+        .footer{position:relative;height:309px;background-color: #ffc000;margin-top:65px;}
+        .sns{display:flex;flex-flow:row wrap;justify-content: flex-end;padding-right:390px;}
+        .sns p i{font-size:17px;}
+        .footer-left{position:absolute;top:0;left:0;padding-left:390px;padding-top:30px;padding-bottom:40px;}
+        .footer-right{position:absolute;top:0;right:0;padding-right:390px;padding-top:30px;padding-bottom:40px;}
+        .footer .container li{font-weight:300;}
+    </style>
+</head>
+<body>
+   <div class="wrap">
+       <section class="header">
+           <div class="container">
+               <div class="logo">
+                   <div class="img-box">
+                       <img src="./images/kodak-logo.png" alt="kodak-logo"><a href="#"></a></img>
+                   </div>
+                </div>
+               <div class="nav">
+                   <ul class="left-nav">
+                       <li><a href="#">SHOP</a></li>
+                       <li><a href="#">OUTLET</a></li>
+                       <li><a href="#">CAMERA</a></li>
+                       <li><a href="#">LOOK BOOK</a></li>
+                       <li><a href="#">KODAK STYLE</a></li>
+                       <li><a href="#">EVENT</a></li>
+                       <li><a href="#">기획전</a></li>
+                   </ul>
+                   <ul class="right-nav">
+                    <li><a href="#"></a><i class="fas fa-user"></i></li>
+                    <li><a href="#"></a><i class="fas fa-shopping-cart"></i></li>
+                    <li><a href="#"><i class="fas fa-search"></i></li>
+                   </ul>
+                </div>
+                <div class="sub-hover">
+                       <ul class="sub-nav">
+                           <li>신상품</li>
+                           <li>전체 상품</li>
+                           <li>아우터</li>
+                           <li>상의</li>
+                           <li>하의</li>
+                           <li>셋업</li>
+                           <li>신발</li>
+                           <li>액세서리</li>
+                           <li>주니어</li>
+                           <li>BLACK FRIDAY</li>
+                       </ul>
+                   </div>
+            </div>    
+               
+
+           
+        </section>
+       <section class="main-banner" id="main-banner">
+           <div class="swiper">
+               <div class="swiper-wrapper">
+                       <div class="swiper-slide main01">
+                            <a href="#"><img src="./images/mainbanner01.jpg" alt="main-banner01"></a></img>
+                       </div>
+                       <div class="swiper-slide main02">
+                            <a href="#"><img src="./images/mainbanner02.jpg" alt="main-banner02"></a></img>
+                        </div>
+                        <div class="swiper-slide main03">
+                            <a href="#"><img src="./images/mainbanner03.jpg" alt="main-banner03"></a></img>
+                       </div>
+                       <div class="swiper-slide main04">
+                       <a href="#"><img src="./images/mainbanner04.jpg" alt="main-banner04"></a></img>
+                        </div>
+               </div>
+               <div class="swiper-paginaton"></div>
+           </div>
+       </section>
+       <section class="best">
+           <div class="tit-txt">
+               <h2>Best item</h2>
+           </div>
+           <div class="best-item">
+               <div class="img-box">
+                   <div class="best-img01">
+                       <img src="./images/item-img01.jpg" alt="item01"><a href="#"></a></img>
+                       <p>
+                           코닥 리버시블 바람막이
+                           <br>
+                           13,9000원
+                        </p>
+                   </div>
+                   <div class="best-img02">
+                        <img src="./images/item-img02.png" alt="item02"><a href="#"></a></img>
+                        <p>
+                            컬러 플러스 플리스 자켓 
+                            <br>
+                            15,0000원
+                        </p>
+                    </div>
+                    <div class="best-img03">
+                        <img src="./images/item-img03.png" alt="item03"><a href="#"></a></img>
+                        <p>
+                            코닥 옐로우 바람막이
+                            <br>
+                            14,9000원
+                        </p>
+                    </div>
+                    <div class="best-img04">
+                        <img src="./images/item-img04.png" alt="item04"><a href="#"></a></img>
+                        <p>
+                            코닥 핑크 맨투맨
+                            <br>
+                            8,9000원
+                        </p>
+                    </div>
+                    
+                   
+                   
+                  
+               </div>
+           </div>
+       </section>
+       <section class="new">
+        <div class="tit-txt">
+            <h2>New item</h2>
+        </div>
+        <div class="new-item">
+            <div class="img-box">
+                <div class="new-img01">
+                    <img src="./images/item-img05.png" alt="item01"><a href="#"></a></img>
+                    <p>
+                        코닥 익스프레스 신발
+                        <br>
+                        8,9000원
+                     </p>
+                </div>
+                <div class="new-img02">
+                     <img src="./images/item-img06.png" alt="item02"><a href="#"></a></img>
+                     <p>
+                        코닥 옐로 맨투맨 
+                         <br>
+                         7,5000원
+                     </p>
+                 </div>
+                 <div class="new-img03">
+                     <img src="./images/item-img07.png" alt="item03"><a href="#"></a></img>
+                     <p>
+                        코닥 아이보리 골덴자켓
+                         <br>
+                         15,0000원
+                     </p>
+                 </div>
+                 <div class="new-img04">
+                     <img src="./images/item-img08.png" alt="item04"><a href="#"></a></img>
+                     <p>
+                        레드 플리스 자켓
+                         <br>
+                         9,9000원
+                     </p>
+                 </div>
+                 
+                
+                
+               
+            </div>
+        </div>
+        </section>
+        <section class="kodak-gallery">
+            <div class="title-txt">
+                <h2>#Kodak Gallery</h2>
+            </div>
+            <div class="img-box">
+                <div class="gallery-img01">
+                    <img src="./images/kodak-gallery01.png" alt="gallery01"><a href="#"></a></img>
+                        <div class="hover-box">
+                            <div class="hover-img">
+                                <p>
+                                코닥 어패럴  특별함은 디테일로 부터<br>
+                                컬러 패치가 더하는 감성, 고급스러운 조직감<br>
+                                이들이 모여 영화같은 순간을 완성하다.
+                                </p>
+                            </div>
+                        </div>
+                </div>
+                <div class="gallery-img02">
+                    <img src="./images/kodak-gallery02.png" alt="gallery02"><a href="#"></a></img>
+                        <div class="hover-box">
+                            <div class="hover-img">
+                                <p>
+                                코닥 어패럴과 배우 정해인과 함께<br>
+                                따뜻한 겨울을 보내요
+                                </p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <section class="kodak-insta">
+            <div class="insta-tit-txt">
+                <h2><i class="fab fa-instagram"></i> @kodakstyle_kr follow us</h2>
+            </div>
+            <div class="insta-slide-top">
+                <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./images/insta-img.png" alt="insta01"><a href="#"></a></img>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/insta-img02.png" alt="insta02"><a href="#"></a></img>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/insta-img03.png" alt="insta03"><a href="#"></a></img>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/insta-img04.png" alt="insta04"><a href="#"></a></img>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/insta-img05.png" alt="insta05"><a href="#"></a></img>
+                            </div>
+                     </div>
+                </div>
+            </div>
+            <div class="insta-slide-bottom">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/insta-img06.png" alt="insta06"><a href="#"></a></img>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/insta-img07.png" alt="insta07"><a href="#"></a></img>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/insta-img08.png" alt="insta08"><a href="#"></a></img>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/insta-img09.png" alt="insta09"><a href="#"></a></img>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/insta-img10.png" alt="insta10"><a href="#"></a></img>
+                        </div>
+                    </div>
+            </div>
+        </div>
+            
+        </section>
+        <section class="footer"> 
+            <div class="sns">
+                <p><i class="fab fa-instagram"></i>&nbsp;<i class="fab fa-facebook-f"></i></p>
+            </div>
+        <div class="container">
+            <ul class="footer-left">
+                <li>Hilight Brands 주식회사 하이라이트브랜즈</li>
+                <li>CEO. Jun Kwon Lee</li>
+                <li>Business License No. 788-81-01239  [사업자정보확인]</li>
+                <li>Mail Order Business Registration. No. 2019-성남분당B-0523</li>
+                <li>Address. 801 PDC Building A-Dong 8F, 242, Pangyo-ro, Bundang-gu,</li>
+                <li>Seongnam-si, Gyeonggi, Korea</li>
+                <li>Hilight Brands is a division within Modern Works.</li>
+                <li>The Kodak trademark, logo and trade dress are </li>
+                <li>used by Modern Works under license from Eastman Kodak Company.</li>
+                <li>ⓒ 2021 Hilight Brands.</li>
+            </ul>
+            <ul class="footer-right">
+                <li>반품 & 교환</li>
+                <li>반품배송지 : 경기도 안산시 단원구 시화호수로 835 </li>
+                <li>로지스밸리 3층</li>
+                <li>계좌 안내</li>
+                <li>계좌번호 : 하나은행 439-910024-02604</li>
+                <li>예금주 : 주식회사 하이라이트브랜즈</li>
+                <li>매장 안내</li>
+                <li>전국 매장정보</li>
+                <li>대리점 입점 문의 : chris.hwang@hibs.co.kr</li>
+            </ul>
+        </div>   
+           
+        </section>
+   </div>
+</body>
+<script>
+
+    
+
+
+
+
+
+
+
+
+   // banner swiper style
+    const mainBanner = new Swiper('.main-banner .swiper',{
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+        },
+        autoplay: {
+            delay: 3000,
+        },
+    });
+
+    const kodakInsta = new Swiper('.kodak-insta .swiper',{
+        breakpoints:{
+            320: {
+                slidesPerView: 3.5,
+                spaceBetween:16
+            },
+            768: {
+                slidesPerView: 2.5,
+                spaceBetween:17
+            },
+            1024: {
+                slidesPerView: 3.5,
+                spaceBetween:40
+            },
+            
+        },
+        autoplay: {
+                delay: 2000,
+        }
+    });
+ 
+    
+</script>
+</html>
